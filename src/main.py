@@ -5,6 +5,10 @@ import os
 import sys
 import io
 
+# --> config part
+nrOfQuestionsToAsk = 5
+# <-- end of config
+
 pygame.init()
 screen = pygame.display.set_mode((1500, 800))
 
@@ -36,17 +40,16 @@ name = 'Nieznajomy!'
 menupic = ['animations/menu1.png', 'animations/menu2.png', 'animations/menu3.png',
            'animations/menu4.png', 'animations/menu5.png', 'animations/menu6.png']
 answergif = ['animations/odp1.png', 'animations/odp2.png']
-actual_question = 0
-was.append(actual_question)
+currentQuestionID = 0
+was.append(currentQuestionID)
 ani1 = start_ticks = pygame.time.get_ticks()
 ani2 = start_ticks = pygame.time.get_ticks()
 i = 0
 i2 = 0
-print(len(questions))
-print(len(answers))
 
 user_answer = None
 score = 0
+nrOfQuestionsAsked = 0
 
 game = False
 
@@ -86,6 +89,11 @@ def endIntro():
     screen.fill((40, 41, 35))
 
 
+def exitGame():
+    pygame.quit()
+    sys.exit(0)
+
+
 def animation1():
     for i in (0, 5):
         pic = pygame.image.load(menupic[i])
@@ -109,12 +117,14 @@ def animation2():
 
 def restart():
     global score
+    global nrOfQuestionsAsked
     global was
     global intro
     global game
     global user_answer
     print("d")
     score = 0
+    nrOfQuestionsAsked = 0
     was = []
     intro = True
     game = False
@@ -123,23 +133,34 @@ def restart():
 
 
 def check():
-    global actual_question
+    # update score and mark the question as used
+    global nrOfQuestionsAsked
+    global currentQuestionID
     global score
-    if user_answer == cor_answers[actual_question]:
+
+    nrOfQuestionsAsked += 1
+    was.append(currentQuestionID)
+    if user_answer == cor_answers[currentQuestionID]:
         score += 1
-    actual_question = random.randint(0, len(questions)-1)
-    pygame.time.delay(100)
-    if len(was) == len(questions)-1:
+
+    # check if the required nr of questions was already asked
+    if nrOfQuestionsAsked >= nrOfQuestionsToAsk:
         global game
         game = False
-    draw = True
-    while draw:
-        if actual_question in was:
-            actual_question = random.randint(0, len(questions)-1)
+    else:
+        # get a new question if needed
+        currentQuestionID = random.randint(0, len(questions)-1)
 
-        else:
-            draw = False
-    was.append(actual_question)
+        # make sure here that the questions are not repeated
+        #
+        # draw = True
+        # while draw:
+        #     if currentQuestionID in was:
+        #         currentQuestionID = random.randint(0, len(questions)-1)
+        #     else:
+        #         draw = False
+
+    pygame.time.delay(100)
 
 
 def start_the_game():
@@ -150,6 +171,8 @@ def start_the_game():
                 pygame.quit()
                 exit()
         clock = pygame.time.Clock()
+
+        # show intro
         if intro:
             font = pygame.font.SysFont("", 80)
             text = font.render("Witaj", True, (255, 255, 255))
@@ -163,45 +186,44 @@ def start_the_game():
                    (24, 199, 24), (0, 255, 0), endIntro)
             animation1()
 
+        # show game (questions)
         if game:
             screen.fill((40, 41, 35))
-            add_text(questions[actual_question], (750, 100), 40)
+            add_text(questions[currentQuestionID], (750, 100), 40)
 
-            if actual_question != 0:
-                button(answers[(actual_question*4)+3], 100, 300, 600, 100, (24,
-                                                                            199, 24), (0, 255, 0), check, answers[(actual_question*4)+3])
-                button(answers[(actual_question*4)+2], 800, 300, 600, 100, (24,
-                                                                            199, 24), (0, 255, 0), check, answers[(actual_question*4)+2])
-                button(answers[(actual_question*4)+1], 100, 500, 600, 100, (24,
-                                                                            199, 24), (0, 255, 0), check, answers[(actual_question*4)+1])
-                button(answers[actual_question*4], 800, 500, 600, 100, (24,
-                                                                        199, 24), (0, 255, 0), check, answers[actual_question*4])
-                print(cor_answers[actual_question])
+            curAnswerID_0 = currentQuestionID*4
+            curAnswerID_1 = currentQuestionID*4+1
+            curAnswerID_2 = currentQuestionID*4+2
+            curAnswerID_3 = currentQuestionID*4+3
 
-            else:
-                button(answers[0], 100, 300, 600, 100,
-                       (24, 199, 24), (0, 255, 0), check, answers[0])
-                button(answers[1], 800, 300, 600, 100,
-                       (24, 199, 24), (0, 255, 0), check, answers[1])
-                button(answers[2], 100, 500, 600, 100,
-                       (24, 199, 24), (0, 255, 0), check, answers[2])
-                button(answers[3], 800, 500, 600, 100,
-                       (24, 199, 24), (0, 255, 0), check, answers[3])
+            button(answers[curAnswerID_0], 100, 300, 600, 100, (24,
+                                                                199, 24), (0, 255, 0), check, answers[curAnswerID_0])
+            button(answers[curAnswerID_1], 800, 300, 600, 100, (24,
+                                                                199, 24), (0, 255, 0), check, answers[curAnswerID_1])
+            button(answers[curAnswerID_2], 100, 500, 600, 100, (24,
+                                                                199, 24), (0, 255, 0), check, answers[curAnswerID_2])
+            button(answers[curAnswerID_3], 800, 500, 600, 100, (24,
+                                                                199, 24), (0, 255, 0), check, answers[curAnswerID_3])
 
-            add_text(str(score), (740, 700), 50)
-            add_text("/", (790, 700), 50)
-            add_text(str(len(questions)-1), (840, 700), 50)
+            # print current question number and score
+            add_text("Nr pytania: "+str(nrOfQuestionsAsked+1) +
+                     " / " + str(nrOfQuestionsToAsk), (740, 660), 50)
+            add_text("Zdobyte punkty: "+str(score), (740, 700), 50)
+
             if ani2 >= 100:
                 animation2()
 
-            if game == False and intro == False:
-                screen.fill((40, 41, 35))
-                text = font.render("Dzięki", True, (255, 255, 255))
-                text1 = font.render(name, True, (255, 255, 255))
-                screen.blit(text, (0, 0))
-                screen.blit(text1, (200, 0))
-                add_text("Zdobyłeś: ", (110, 400), 60)
-                add_text(str(score) + "pkt!", (400, 400), 60)
+        # show summary and exit
+        if game == False and intro == False:
+            screen.fill((40, 41, 35))
+            text = font.render("Dzięki", True, (255, 255, 255))
+            text1 = font.render(name, True, (255, 255, 255))
+            screen.blit(text, (0, 0))
+            screen.blit(text1, (200, 0))
+            add_text("Zdobyłeś: ", (110, 400), 60)
+            add_text(str(score) + " pkt!", (400, 400), 60)
+            button("Wyjdź", 650, 500, 200, 100,
+                   (24, 199, 24), (0, 255, 0), exitGame)
 
         pygame.display.update()
         clock.tick(60)
