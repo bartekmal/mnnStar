@@ -1,49 +1,45 @@
 import pygame
 import pygame_menu
 import random
+import os
+import sys
+import io
 
 pygame.init()
 screen = pygame.display.set_mode((1500, 800))
-questions = []
 
-text = open('data.txt').read()
-zdania = ""
 
-for i in range(len(text)):
-    if text[i] != "$":
-        zdania += text[i]
-    else:
-        questions.append(zdania)
-        zdania = ""
+def getDataFromFile(fileName):
+    data = []
+    try:
+        with io.open(fileName, 'r', encoding='utf8') as f:
+            data = f.read().split('$')
+    except FileNotFoundError:
+        print("Nie znaleziono pliku: {}".format(fileName))
+    return data
 
-text = open('odpowiedzi.txt').read()
-answers = []
-for i in range(len(text)):
-    if text[i] != "$":
-        zdania += text[i]
-    else:
-        answers.append(zdania)
-        zdania = ""
 
-text = open('poprawneODP.txt').read()
-cor_answer = []
-for i in range(len(text)):
-    if text[i] != "$":
-        zdania += text[i]
-    else:
-        cor_answer.append(zdania)
-        zdania = ""
+# load the input data
+questions = getDataFromFile('data.txt')
+answers = getDataFromFile('odpowiedzi.txt')
+cor_answers = getDataFromFile('poprawneODP.txt')
 
+# check if the input data exist
+if not (questions and answers and cor_answers):
+    print("Nie znaleziono wymaganych danych.")
+    pygame.quit()
+    sys.exit(1)
 
 was = []
 intro = True
 name = 'Nieznajomy!'
-menupic = ['animations/menu1.png', 'animations/menu2.png', 'animations/menu3.png', 'animations/menu4.png', 'animations/menu5.png', 'animations/menu6.png']
+menupic = ['animations/menu1.png', 'animations/menu2.png', 'animations/menu3.png',
+           'animations/menu4.png', 'animations/menu5.png', 'animations/menu6.png']
 answergif = ['animations/odp1.png', 'animations/odp2.png']
 actual_question = 0
 was.append(actual_question)
-ani1 = start_ticks=pygame.time.get_ticks()
-ani2 = start_ticks=pygame.time.get_ticks()
+ani1 = start_ticks = pygame.time.get_ticks()
+ani2 = start_ticks = pygame.time.get_ticks()
 i = 0
 i2 = 0
 print(len(questions))
@@ -54,17 +50,20 @@ score = 0
 
 game = False
 
-def add_text(string, position, size = 30):
+
+def add_text(string, position, size=30):
     font = pygame.font.SysFont("freesansbold.ttf", size)
     text = font.render(string, True, (255, 255, 255))
-    text_rect = text.get_rect(center = position)
+    text_rect = text.get_rect(center=position)
     screen.blit(text, text_rect)
+
 
 def set_name(player_name):
     global name
     name = player_name + "!"
 
-def button(msg, x, y, w, h, ic, ac, action = None, answer = None):
+
+def button(msg, x, y, w, h, ic, ac, action=None, answer=None):
     mouse = pygame.mouse.get_pos()
     click = pygame.mouse.get_pressed()
 
@@ -78,12 +77,14 @@ def button(msg, x, y, w, h, ic, ac, action = None, answer = None):
         pygame.draw.rect(screen, ic, (x, y, w, h))
     add_text(msg, (x+(w/2), y+(h/2)))
 
+
 def endIntro():
     global intro
     global game
     intro = False
     game = True
     screen.fill((40, 41, 35))
+
 
 def animation1():
     for i in (0, 5):
@@ -92,6 +93,7 @@ def animation1():
         pygame.display.update()
         pygame.time.delay(100)
         pygame.draw.rect(screen, (40, 41, 35), (1300, 0, 200, 100))
+
 
 def animation2():
     global i2
@@ -104,8 +106,8 @@ def animation2():
     pygame.draw.rect(screen, (40, 41, 35), (680, 150, 150, 150))
     i2 += 1
 
-def restart():
 
+def restart():
     global score
     global was
     global intro
@@ -119,10 +121,11 @@ def restart():
     user_answer = None
     menu.enable()
 
+
 def check():
     global actual_question
     global score
-    if user_answer == cor_answer[actual_question]:
+    if user_answer == cor_answers[actual_question]:
         score += 1
     actual_question = random.randint(0, len(questions)-1)
     pygame.time.delay(100)
@@ -137,6 +140,7 @@ def check():
         else:
             draw = False
     was.append(actual_question)
+
 
 def start_the_game():
     menu.disable()
@@ -153,9 +157,10 @@ def start_the_game():
             screen.fill((40, 41, 35))
             screen.blit(text, (0, 0))
             screen.blit(text1, (150, 0))
-            add_text("Pomóż mi stać sie większą gwiazdą!", (370, 80), 60)
-            add_text("Odpowiadaj poprawnie na pytania a urosnę!", (445, 120), 60)
-            button("Graj!", 650, 400, 200, 100, (24, 199, 24), (0, 255, 0), endIntro)
+            add_text("Pomóż mi stać się większą gwiazdą!", (370, 80), 60)
+            add_text("Odpowiadaj poprawnie na pytania, a urosnę!", (445, 120), 60)
+            button("Graj!", 650, 400, 200, 100,
+                   (24, 199, 24), (0, 255, 0), endIntro)
             animation1()
 
         if game:
@@ -163,17 +168,25 @@ def start_the_game():
             add_text(questions[actual_question], (750, 100), 40)
 
             if actual_question != 0:
-                button(answers[(actual_question*4)+3], 100, 300, 600, 100, (24, 199, 24), (0, 255, 0), check, answers[(actual_question*4)+3])
-                button(answers[(actual_question*4)+2], 800, 300, 600, 100, (24, 199, 24), (0, 255, 0), check, answers[(actual_question*4)+2])
-                button(answers[(actual_question*4)+1], 100, 500, 600, 100, (24, 199, 24), (0, 255, 0), check, answers[(actual_question*4)+1])
-                button(answers[actual_question*4], 800, 500, 600, 100, (24, 199, 24), (0, 255, 0), check, answers[actual_question*4])
-                print(cor_answer[actual_question])
+                button(answers[(actual_question*4)+3], 100, 300, 600, 100, (24,
+                                                                            199, 24), (0, 255, 0), check, answers[(actual_question*4)+3])
+                button(answers[(actual_question*4)+2], 800, 300, 600, 100, (24,
+                                                                            199, 24), (0, 255, 0), check, answers[(actual_question*4)+2])
+                button(answers[(actual_question*4)+1], 100, 500, 600, 100, (24,
+                                                                            199, 24), (0, 255, 0), check, answers[(actual_question*4)+1])
+                button(answers[actual_question*4], 800, 500, 600, 100, (24,
+                                                                        199, 24), (0, 255, 0), check, answers[actual_question*4])
+                print(cor_answers[actual_question])
 
             else:
-                button(answers[0], 100, 300, 600, 100, (24, 199, 24), (0, 255, 0), check, answers[0])
-                button(answers[1], 800, 300, 600, 100, (24, 199, 24), (0, 255, 0), check, answers[1])
-                button(answers[2], 100, 500, 600, 100, (24, 199, 24), (0, 255, 0), check, answers[2])
-                button(answers[3], 800, 500, 600, 100, (24, 199, 24), (0, 255, 0), check, answers[3])
+                button(answers[0], 100, 300, 600, 100,
+                       (24, 199, 24), (0, 255, 0), check, answers[0])
+                button(answers[1], 800, 300, 600, 100,
+                       (24, 199, 24), (0, 255, 0), check, answers[1])
+                button(answers[2], 100, 500, 600, 100,
+                       (24, 199, 24), (0, 255, 0), check, answers[2])
+                button(answers[3], 800, 500, 600, 100,
+                       (24, 199, 24), (0, 255, 0), check, answers[3])
 
             add_text(str(score), (740, 700), 50)
             add_text("/", (790, 700), 50)
@@ -195,11 +208,10 @@ def start_the_game():
 
 
 menu = pygame_menu.Menu(800, 1500, 'Quiz', theme=pygame_menu.themes.THEME_DARK)
-menu.add_text_input('Imie: ', onchange=set_name)
+menu.add_text_input('Imię: ', onchange=set_name)
 menu.add_vertical_margin(100)
 menu.add_button('Graj!', start_the_game)
 menu.add_vertical_margin(10)
-menu.add_button('Wyjdz', pygame_menu.events.EXIT)
-
+menu.add_button('Wyjdź', pygame_menu.events.EXIT)
 
 menu.mainloop(screen)
