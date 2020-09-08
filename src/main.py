@@ -9,8 +9,22 @@ import io
 nrOfQuestionsToAsk = 5
 # <-- end of config
 
-pygame.init()
-screen = pygame.display.set_mode((1500, 800))
+
+class QuestionEntry:
+    question = ''
+    answers = []
+    correctAnswer = ''
+
+    def __init__(self, question, answers, correctAnswer):
+        self.question = question
+        self.answers = answers
+        self.correctAnswer = correctAnswer
+
+    def checkAnswer(self, answerToCheck):
+        if answerToCheck == self.correctAnswer:
+            return True
+        else:
+            return False
 
 
 def getDataFromFile(fileName):
@@ -28,20 +42,38 @@ questions = getDataFromFile('data.txt')
 answers = getDataFromFile('odpowiedzi.txt')
 cor_answers = getDataFromFile('poprawneODP.txt')
 
-# check if the input data exist
+# validate the input data
 if not (questions and answers and cor_answers):
     print("Nie znaleziono wymaganych danych.")
     pygame.quit()
     sys.exit(1)
+elif (len(cor_answers) != len(questions)) or (len(answers) != 4*len(questions)):
+    print("Niespodziewany format danych.")
+    pygame.quit()
+    sys.exit(1)
 
-was = []
+# combine the input data into a single list
+questionsList = []
+for i in range(len(questions)):
+    # four consecutive entries in the answers list are for the given question
+    answersToCurrentQuestion = [answers[i*4 + j] for j in range(4)]
+
+    questionsList.append(QuestionEntry(
+        questions[i], answersToCurrentQuestion, cor_answers[i]))
+
+# shuffle the list to get random questions (can be then read one by one)
+random.shuffle(questionsList)
+
+# prepare the game display
+pygame.init()
+screen = pygame.display.set_mode((1500, 800))
+
 intro = True
 name = 'Nieznajomy!'
 menupic = ['animations/menu1.png', 'animations/menu2.png', 'animations/menu3.png',
            'animations/menu4.png', 'animations/menu5.png', 'animations/menu6.png']
 answergif = ['animations/odp1.png', 'animations/odp2.png']
-currentQuestionID = 0
-was.append(currentQuestionID)
+currentQuestionNr = 0
 ani1 = start_ticks = pygame.time.get_ticks()
 ani2 = start_ticks = pygame.time.get_ticks()
 i = 0
@@ -49,7 +81,6 @@ i2 = 0
 
 user_answer = None
 score = 0
-nrOfQuestionsAsked = 0
 
 game = False
 
@@ -117,48 +148,30 @@ def animation2():
 
 def restart():
     global score
-    global nrOfQuestionsAsked
-    global was
     global intro
     global game
     global user_answer
     print("d")
     score = 0
-    nrOfQuestionsAsked = 0
-    was = []
     intro = True
     game = False
     user_answer = None
     menu.enable()
 
 
-def check():
-    # update score and mark the question as used
-    global nrOfQuestionsAsked
-    global currentQuestionID
+def processAnswer():
+    global currentQuestionNr
     global score
 
-    nrOfQuestionsAsked += 1
-    was.append(currentQuestionID)
-    if user_answer == cor_answers[currentQuestionID]:
+    # update the score and mark that a question was asked
+    if questionsList[currentQuestionNr].checkAnswer(user_answer):
         score += 1
+    currentQuestionNr += 1
 
     # check if the required nr of questions was already asked
-    if nrOfQuestionsAsked >= nrOfQuestionsToAsk:
+    if currentQuestionNr >= nrOfQuestionsToAsk:
         global game
         game = False
-    else:
-        # get a new question if needed
-        currentQuestionID = random.randint(0, len(questions)-1)
-
-        # make sure here that the questions are not repeated
-        #
-        # draw = True
-        # while draw:
-        #     if currentQuestionID in was:
-        #         currentQuestionID = random.randint(0, len(questions)-1)
-        #     else:
-        #         draw = False
 
     pygame.time.delay(100)
 
@@ -189,26 +202,23 @@ def start_the_game():
         # show game (questions)
         if game:
             screen.fill((40, 41, 35))
-            add_text(questions[currentQuestionID], (750, 100), 40)
 
-            curAnswerID_0 = currentQuestionID*4
-            curAnswerID_1 = currentQuestionID*4+1
-            curAnswerID_2 = currentQuestionID*4+2
-            curAnswerID_3 = currentQuestionID*4+3
-
-            button(answers[curAnswerID_0], 100, 300, 600, 100, (24,
-                                                                199, 24), (0, 255, 0), check, answers[curAnswerID_0])
-            button(answers[curAnswerID_1], 800, 300, 600, 100, (24,
-                                                                199, 24), (0, 255, 0), check, answers[curAnswerID_1])
-            button(answers[curAnswerID_2], 100, 500, 600, 100, (24,
-                                                                199, 24), (0, 255, 0), check, answers[curAnswerID_2])
-            button(answers[curAnswerID_3], 800, 500, 600, 100, (24,
-                                                                199, 24), (0, 255, 0), check, answers[curAnswerID_3])
-
-            # print current question number and score
-            add_text("Nr pytania: "+str(nrOfQuestionsAsked+1) +
+            # print the current question number and score
+            add_text("Nr pytania: "+str(currentQuestionNr+1) +
                      " / " + str(nrOfQuestionsToAsk), (740, 660), 50)
             add_text("Zdobyte punkty: "+str(score), (740, 700), 50)
+
+            # print the current question
+            currentQuestionEntry = questionsList[currentQuestionNr]
+            add_text(currentQuestionEntry.question, (750, 100), 40)
+            button(currentQuestionEntry.answers[0], 100, 300, 600, 100, (24,
+                                                                         199, 24), (0, 255, 0), processAnswer, currentQuestionEntry.answers[0])
+            button(currentQuestionEntry.answers[1], 800, 300, 600, 100, (24,
+                                                                         199, 24), (0, 255, 0), processAnswer, currentQuestionEntry.answers[1])
+            button(currentQuestionEntry.answers[2], 100, 500, 600, 100, (24,
+                                                                         199, 24), (0, 255, 0), processAnswer, currentQuestionEntry.answers[2])
+            button(currentQuestionEntry.answers[3], 800, 500, 600, 100, (24,
+                                                                         199, 24), (0, 255, 0), processAnswer, currentQuestionEntry.answers[3])
 
             if ani2 >= 100:
                 animation2()
