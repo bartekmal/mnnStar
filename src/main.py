@@ -8,10 +8,10 @@ from QuestionsHelper import *
 nrOfQuestionsToAsk = 5
 # <-- end of config
 
-# prepare a list of questions
+# prepare and validate a list of questions
 questionsList = getRandomisedQuestionsList()
-if not questionsList:
-    print("Lista pytań jest pusta.")
+if not questionsList or (len(questionsList) < nrOfQuestionsToAsk):
+    print("Lista pytań jest zbyt krótka.")
     sys.exit(1)
 
 # prepare the game display
