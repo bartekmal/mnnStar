@@ -5,7 +5,7 @@ import sys
 from QuestionsHelper import *
 
 # --> config part
-nrOfQuestionsToAsk = 5
+nrOfQuestionsToAsk = 2
 # <-- end of config
 
 # prepare and validate a list of questions
@@ -29,7 +29,7 @@ ani2 = start_ticks = pygame.time.get_ticks()
 i = 0
 i2 = 0
 
-user_answer = None
+userAnswerId = None
 score = 0
 
 game = False
@@ -47,15 +47,15 @@ def set_name(player_name):
     name = player_name + "!"
 
 
-def button(msg, x, y, w, h, ic, ac, action=None, answer=None):
+def button(msg, x, y, w, h, ic, ac, action=None, answerId=None):
     mouse = pygame.mouse.get_pos()
     click = pygame.mouse.get_pressed()
 
     if x+w > mouse[0] > x and y+h > mouse[1] > y:
         pygame.draw.rect(screen, ac, (x, y, w, h))
         if click[0] == 1 and action != None:
-            global user_answer
-            user_answer = answer
+            global userAnswerId
+            userAnswerId = answerId
             action()
     else:
         pygame.draw.rect(screen, ic, (x, y, w, h))
@@ -100,12 +100,12 @@ def restart():
     global score
     global intro
     global game
-    global user_answer
+    global userAnswerId
     print("d")
     score = 0
     intro = True
     game = False
-    user_answer = None
+    userAnswerId = None
     menu.enable()
 
 
@@ -114,7 +114,7 @@ def processAnswer():
     global score
 
     # update the score and mark that a question was asked
-    if questionsList[currentQuestionNr].checkAnswer(user_answer):
+    if questionsList[currentQuestionNr].checkAnswer(userAnswerId):
         score += 1
     currentQuestionNr += 1
 
@@ -162,13 +162,13 @@ def start_the_game():
             currentQuestionEntry = questionsList[currentQuestionNr]
             add_text(currentQuestionEntry.question, (750, 100), 40)
             button(currentQuestionEntry.answers[0], 100, 300, 600, 100, (24,
-                                                                         199, 24), (0, 255, 0), processAnswer, currentQuestionEntry.answers[0])
+                                                                         199, 24), (0, 255, 0), processAnswer, 0)
             button(currentQuestionEntry.answers[1], 800, 300, 600, 100, (24,
-                                                                         199, 24), (0, 255, 0), processAnswer, currentQuestionEntry.answers[1])
+                                                                         199, 24), (0, 255, 0), processAnswer, 1)
             button(currentQuestionEntry.answers[2], 100, 500, 600, 100, (24,
-                                                                         199, 24), (0, 255, 0), processAnswer, currentQuestionEntry.answers[2])
+                                                                         199, 24), (0, 255, 0), processAnswer, 2)
             button(currentQuestionEntry.answers[3], 800, 500, 600, 100, (24,
-                                                                         199, 24), (0, 255, 0), processAnswer, currentQuestionEntry.answers[3])
+                                                                         199, 24), (0, 255, 0), processAnswer, 3)
 
             if ani2 >= 100:
                 animation2()

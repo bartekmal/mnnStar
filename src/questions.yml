@@ -1,0 +1,15 @@
+- question: 'Ile może przenieść jaskółka?'
+  answers:
+    - 'europejska'
+    - 'afrykańska'
+    - 'tak'
+    - 'nie'
+  correctAnswerId: 0
+
+- question: 'Ile może przenieść ptok?'
+  answers:
+    - 'europejska'
+    - 'afrykańska'
+    - 'tak'
+    - 'nie'
+  correctAnswerId: 3

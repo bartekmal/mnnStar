@@ -2,20 +2,21 @@ import random
 import os
 import sys
 import io
+import yaml
 
 
 class QuestionEntry:
     question = ''
     answers = []
-    correctAnswer = ''
+    correctAnswerId = 0
 
-    def __init__(self, question, answers, correctAnswer):
+    def __init__(self, question, answers, correctAnswerId):
         self.question = question
         self.answers = answers
-        self.correctAnswer = correctAnswer
+        self.correctAnswerId = correctAnswerId
 
     def checkAnswer(self, answerToCheck):
-        if answerToCheck == self.correctAnswer:
+        if answerToCheck == self.correctAnswerId:
             return True
         else:
             return False
@@ -25,7 +26,7 @@ def getDataFromFile(fileName):
     data = []
     try:
         with io.open(fileName, 'r', encoding='utf8') as f:
-            data = f.read().split('$')
+            data = yaml.safe_load(f)
     except FileNotFoundError:
         print("Nie znaleziono pliku: {}".format(fileName))
     return data
@@ -36,25 +37,24 @@ def getRandomisedQuestionsList():
     randomisedQuestionsList = []
 
     # load the input data
-    questions = getDataFromFile('data.txt')
-    answers = getDataFromFile('odpowiedzi.txt')
-    cor_answers = getDataFromFile('poprawneODP.txt')
+    entries = getDataFromFile('questions.yml')
 
     # validate the input data
-    if not (questions and answers and cor_answers):
+    if not entries:
         print("Nie znaleziono wymaganych danych.")
         sys.exit(1)
-    elif (len(cor_answers) != len(questions)) or (len(answers) != 4*len(questions)):
-        print("Niespodziewany format danych.")
-        sys.exit(1)
 
-    # combine the input data into a single list
-    for i in range(len(questions)):
-        # four consecutive entries in the answers list are for the given question
-        answersToCurrentQuestion = [answers[i*4 + j] for j in range(4)]
-
+    # make a final list
+    for entry in entries:
         randomisedQuestionsList.append(QuestionEntry(
-            questions[i], answersToCurrentQuestion, cor_answers[i]))
+            entry['question'], entry['answers'], entry['correctAnswerId']))
+
+    # validate questions
+    for el in randomisedQuestionsList:
+        if not el.correctAnswerId < len(el.answers):
+            print("W tym pytaniu podana poprawna odpowiedź jest spoza zakresu.")
+            print("-->{}".format(el.question))
+            sys.exit(1)
 
     # shuffle the list to get random questions (can be then read one by one)
     random.shuffle(randomisedQuestionsList)
