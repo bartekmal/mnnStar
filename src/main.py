@@ -5,7 +5,7 @@ import sys
 from QuestionsHelper import *
 
 # --> config part
-nrOfQuestionsToAsk = 2
+nrOfQuestionsToAsk = 10
 # <-- end of config
 
 # prepare and validate a list of questions

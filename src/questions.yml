@@ -1,15 +1,1023 @@
-- question: 'Ile może przenieść jaskółka?'
+- question: 'Parcie jest to'
   answers:
-    - 'europejska'
-    - 'afrykańska'
-    - 'tak'
-    - 'nie'
+    - 'nacisk ciała na podłogę, na której stoimy'
+    - 'nacisk cieczy lub gazu na ścianki naczynia'
+    - 'nacisk cieczy tylko na dno naczynia, w którym się ona znajduje'
+    - 'presja nauczyciela na ucznia celem zmuszenia go do nauki'
+  correctAnswerId: 1
+
+- question: ' Z prawa Pascala nie korzysta:'
+  answers:
+    - 'samolot'
+    - 'podnośnik hydrauliczny'
+    - 'barka rzeczna'
+    - 'hamulec samochodowy'
+  correctAnswerId: 2
+
+- question: 'Jednostką ciśnienia jest:'
+  answers:
+  - 'Pascal'
+  - 'Niuton'
+  - 'Metr'
+  - 'Wat'
   correctAnswerId: 0
 
-- question: 'Ile może przenieść ptok?'
+- question: 'Wskaż zdanie prawdziwe'
   answers:
-    - 'europejska'
-    - 'afrykańska'
-    - 'tak'
-    - 'nie'
+  - 'w prasie hydraulicznej zastosowanie ma prawo Pascala'
+  - 'ryby regulują swoje zanurzenie używając prawa Pascala'
+  - 'Balony unoszą się w powietrzu dzięki prawu Pascala'
+  - 'prawo Pascala dotyczy prądu elektrycznego'
+  correctAnswerId: 0
+
+- question: 'Ciśnienie hydrostatyczne zależy od:'
+  answers:
+  - 'ilości cieczy'
+  - 'temperatury'
+  - 'wysokości słupa cieczy'
+  - 'objętości cieczy'
+  correctAnswerId: 2
+
+- question: 'Prawo Pascala dotyczy'
+  answers:
+  - 'siły wyporu'
+  - 'ciśnienia gazu lub cieczy w zamkniętym zbiorniku'
+  - 'ciśnienia hydrostatycznego'
+  - 'parcia cieczy na dno naczynia'
+  correctAnswerId: 1
+
+- question: 'Ciśnienie mogę zmierzyć?'
+  answers:
+  - 'barometrem'
+  - 'termometrem'
+  - 'linijką'
+  - 'potencjometrem'
+  correctAnswerId: 0
+
+- question: 'Który zbiór zawiera tylko jednostki ciśnienia?'
+  answers:
+  - 'N, hPa, kN'
+  - 'kg, Pa, cm'
+  - 'N, m, Pa'
+  - 'Pa, hPa, kPa'
   correctAnswerId: 3
+
+- question: ''
+  answers:
+  - '10 Pa'
+  - '1000 Pa'
+  - '100 Pa'
+  - '760 Pa'
+  correctAnswerId: 2
+
+- question: 'Jak zachowuje się ciśnienie hydrostatyczne wraz ze wzrostem głębokości?'
+  answers:
+  - 'rośnie'
+  - 'maleje'
+  - 'nie zmienia się'
+  - 'za każdym razem inaczej'
+  correctAnswerId: 0
+
+- question: 'Ciśnienie hydrostatyczne nie zależy od:'
+  answers:
+  - 'gęstości cieczy'
+  - 'wysokości słupa cieczy'
+  - 'kształtu naczynia w którym znajduje się ciecz'
+  - 'przyspieszenia grawitacyjnego'
+  correctAnswerId: 2
+
+- question: 'Kim był Archimedes?'
+  answers:
+  - 'Greckim kaskaderem'
+  - 'Greckim kucharzem'
+  - 'Greckim filozofem przyrody i matematykiem'
+  - 'Greckim piratem'
+  correctAnswerId: 2
+
+- question: 'Siłę wyporu można zdefiniować jako:'
+  answers:
+  - 'iloczyn masy i grawitacji'
+  - 'iloczynem gęstości cieczy lub gazu, grawitacji i objętości'
+  - 'ilorazem gęstości cieczy lub gazu, grawitacji i objętości'
+  - 'ilorazem masy i grawitacji'
+  correctAnswerId: 1
+
+- question: 'Jeśli gęstość ciała jest większa od gęstości cieczy to:'
+  answers:
+  - 'ciało tonie'
+  - 'ciało unosi się na powierzchni cieczy'
+  - 'ciało nie tonie i nie pływa na powierzchni cieczy'
+  - 'ciało pozostaje w spoczynku i porusza się ruchem jednostajnie prostoliniowym'
+  correctAnswerId: 0
+
+- question: 'Jeśli gęstość ciała jest mniejsza od gęstości cieczy lub gazu to:'
+  answers:
+  - 'ciało tonie'
+  - 'siła wypadkowa i siła równoważąca są sobie równe'
+  - 'siły działające na to ciało równoważą się'
+  - 'ciało unosi się na powierzchni'
+  correctAnswerId: 3
+
+- question: 'Jeśli gęstość ciała jest równa gęstości cieczy lub gazu to:'
+  answers:
+  - 'ciało tonie'
+  - 'ciało unosi się na powierzchni'
+  - 'ciało unosi się - nie tonie, ani nie wypływa'
+  - ''
+  correctAnswerId: 2
+
+- question: 'Na czym polega resublimacja?'
+  answers:
+  - 'przemiana pary w ciecz'
+  - 'przemiana cieczy w parę'
+  - 'przemiana pary w ciało stałe'
+  - 'przemiana ciała stałego w parę'
+  correctAnswerId: 2
+
+- question: 'Chcąc wyznaczyć gęstość substancji, z której wykonany jest przedmiot, musimy:'
+  answers:
+  - 'zmierzyć masę ciała, jego objętość, a następnie podzielić masę przez objętość'
+  - 'obliczyć objętość ciała, zmierzyć masę'
+  - 'zmierzyć masę ciała, jego objętość, a następnie podzielić objętość ciała przez masę'
+  - 'odczytać w tabelce gęstość'
+  correctAnswerId: 0
+
+- question: 'Gęstość jest wielkością fizyczną:'
+  answers:
+  - 'wektorową'
+  - 'skalarną'
+  - 'skalarną i wektorową'
+  - 'inną'
+  correctAnswerId: 1
+
+- question: 'Stosunek masy do objętości wyrażony w gramach na metr sześćienny to:'
+  answers:
+  - 'gęstość'
+  - 'prędkość'
+  - 'pęd'
+  - 'energię'
+  correctAnswerId: 0
+
+- question: '0,12 t = ..... kg'
+  answers:
+  - '1.2'
+  - '1200'
+  - '12'
+  - '120'
+  correctAnswerId: 3
+
+- question: 'Jakim symbolem zazwyczaj oznaczamy objętość?'
+  answers:
+  - 'g'
+  - 'V'
+  - 'd'
+  - 'P'
+  correctAnswerId: 1
+
+- question: 'Które z podanych stanów nie istnieje'
+  answers:
+  - 'ciekły'
+  - 'gazowy'
+  - 'stały'
+  - 'półstały'
+  correctAnswerId: 3
+
+- question: 'czym mierzymy ciśnienie atmosweryczne'
+  answers:
+  - 'barometr'
+  - 'ciśnieniomierz'
+  - 'atmosferometr'
+  - 'wietrzomierz'
+  correctAnswerId: 0
+
+- question: 'Gdzie mamy do czynienia ze stanem ciekłym'
+  answers:
+  - 'kreda'
+  - 'woda'
+  - 'biurko'
+  - 'cukier'
+  correctAnswerId: 1
+
+- question: 'Który z podanych to stan ciekły'
+  answers:
+  - 'woda'
+  - 'śnieg'
+  - 'węgiel'
+  - 'piach'
+  correctAnswerId: 0
+
+- question: 'Jednostką napięcia elektrycznego jest?'
+  answers:
+  - 'wolt'
+  - 'amper'
+  - 'kulomb'
+  - 'kolumb'
+  correctAnswerId: 0
+
+- question: 'Do układu SI nie należy'
+  answers:
+  - 'm'
+  - 'N'
+  - 'kg'
+  - 'A'
+  correctAnswerId: 1
+
+- question: 'Jednostka siły to'
+  answers:
+  - 'm'
+  - 'A'
+  - 'kg'
+  - 'N'
+  correctAnswerId: 3
+
+- question: 'Jak nazywana jes bezpośrednia przemiana lodu w parę wodną?'
+  answers:
+  - 'parowanie'
+  - 'topnienie'
+  - 'krzepnięcie'
+  - 'sublimacja'
+  correctAnswerId: 3
+
+- question: 'Przykładem stanu ciekłego NIE JEST:'
+  answers:
+  - 'woda'
+  - 'sok'
+  - 'kreda'
+  - 'napój izotoniczny'
+  correctAnswerId: 2
+
+- question: 'Jednostka masy to?'
+  answers:
+  - 'gram'
+  - 'metr'
+  - 'wolt'
+  - 'amper'
+  correctAnswerId: 0
+
+- question: 'Wzór na prędkość to?'
+  answers:
+  - 'prędkość/czas'
+  - 'droga/czas'
+  - 'droga/godziny'
+  - 'masa/droga'
+  correctAnswerId: 1
+
+- question: '1 godzina to ile to sekund?'
+  answers:
+  - ' 7200 s'
+  - '100 s'
+  - '60 s'
+  - '3600 s'
+  correctAnswerId: 3
+
+- question: 'Napięcie elektryczne mierzymy w'
+  answers:
+  - 'woltach'
+  - 'kulombach'
+  - 'niutonach'
+  - 'metrach'
+  correctAnswerId: 0
+
+- question: 'Który w kolejności od Słońca jest Jowisz?'
+  answers:
+  - '1'
+  - '2'
+  - '5'
+  - '8'
+  correctAnswerId: 2
+
+- question: '35cm to inaczej'
+  answers:
+  - '0,35 km'
+  - '3.5 dm'
+  - '35 m'
+  - '35 mm'
+  correctAnswerId: 1
+
+- question: 'Która w kolejności od Słońca jest Ziemia?'
+  answers:
+  - '1'
+  - '2'
+  - '3'
+  - '4'
+  correctAnswerId: 2
+
+- question: 'Pierwsza planeta od Słońca to'
+  answers:
+  - 'Wenus'
+  - 'Ziemia'
+  - 'Uran'
+  - 'Merkury'
+  correctAnswerId: 3
+
+- question: 'Druga planeta od Słońca to'
+  answers:
+  - 'Wenus'
+  - 'Ziemia'
+  - 'Uran'
+  - 'Merkury'
+  correctAnswerId: 0
+
+- question: 'Największa planeta naszego ukladu słonecznego to'
+  answers:
+  - 'Merkury'
+  - 'Ziemia'
+  - 'Neptun'
+  - 'Jowisz'
+  correctAnswerId: 3
+
+- question: 'Ruch jednostajny to taki ruch w którym'
+  answers:
+  - 'prędkość jest stała'
+  - 'szybkość jest wielkością stałą'
+  - 'ciało nie przyspiesza i nie zwalnia i porusza się'
+  - 'wszystkie odpowiedzi są poprawne'
+  correctAnswerId: 3
+
+- question: 'Jednostką siły jest:'
+  answers:
+  - 'niuton'
+  - 'kilogram'
+  - 'centymetr'
+  - 'wolt'
+  correctAnswerId: 0
+
+- question: 'Dyfuzja jest to zjawisko, które zachodzi w:'
+  answers:
+  - 'ciałach stałych'
+  - 'cieczach'
+  - 'gazach'
+  - 'wszystkie odpowiedzi są poprawne'
+  correctAnswerId: 3
+
+- question: 'Ile w przybliżeniu na Ziemi wynosi ciężar arbuza o masie 7 kg?'
+  answers:
+  - '7 N'
+  - '70 kg'
+  - '70 N'
+  - '7 kg'
+  correctAnswerId: 2
+
+- question: 'Wybierz zbiór, który zawiera tylko jednostki siły'
+  answers:
+  - 'kiloniuton, kilogram, kilometr'
+  - 'kiloniuton, meganiuton, niuton'
+  - 'kilogram, niuton, kiloniuton'
+  - 'niuton, gram, centymetr'
+  correctAnswerId: 1
+
+- question: 'Im większa jest masa ciała tym:'
+  answers:
+  - 'większa jest siła grawitacji'
+  - 'siła grawitacji jest mniejsza'
+  - 'masa nie ma wpływu na siłę grawitacji'
+  - 'tym większa siła oporu'
+  correctAnswerId: 0
+
+- question: 'Siła tarcia ślizgowego zależy od:'
+  answers:
+  - 'rodzaju ośrodka i powierzchni ciała'
+  - 'prędkości i masy ciała'
+  - 'rodzaju podłoża i masy ciała'
+  - 'objętości i rodzaju podłoża'
+  correctAnswerId: 2
+
+- question: 'Janek pcha szafę w lewo siłą 60N, a Krzysiek w prawo siłą 120N. Jaki zwrot i wartość ma wypadkowa ich sił?'
+  answers:
+  - 'w lewo, 60N'
+  - 'w lewo, 180N'
+  - 'w prawo, 180 N'
+  - 'w prawo, 60 N'
+  correctAnswerId: 3
+
+- question: 'Jednostka pracy to:'
+  answers:
+  - 'dżul'
+  - 'kilogram'
+  - 'wat'
+  - 'om'
+  correctAnswerId: 0
+
+- question: 'Jaką pracę wykonamy działając na ciało siłą 20N przesuwając je o 4m?'
+  answers:
+  - '8 W'
+  - '8 J'
+  - '80 J'
+  - '80 W'
+  correctAnswerId: 2
+
+- question: 'Ciało o ciężarze 20 N ma względem powierzchni Ziemi energią potencjalną ciężkości 10 J. Na jakiej (w przybliżeniu) wysokości się znajduje?'
+  answers:
+  - '5 m'
+  - '0,5 m'
+  - '50 m'
+  - '5 cm'
+  correctAnswerId: 1
+
+- question: 'Związana z ruchem; im szybciej porusza się dane ciało, tym większą ma energię ...'
+  answers:
+  - 'jądrową'
+  - 'chemiczną'
+  - 'kinetyczną'
+  - 'spoczynkową'
+  correctAnswerId: 2
+
+- question: 'Janek podniósł paczkę o masie 10 kg na wysokość 2 m w czasie 2 s. Średnia moc ucznia w czasie podnoszenia paczki wynosiła:'
+  answers:
+  - '10 W'
+  - '20 W'
+  - '200 W'
+  - '100 W'
+  correctAnswerId: 3
+
+- question: 'Gdy narciarz rozpędza się, jadąc z góry,'
+  answers:
+  - 'jego energia potencjalna maleje, a kinetyczna rośnie'
+  - 'jego energia potencjalna rośnie, a kinetyczna maleje'
+  - 'jego energia potencjalna i kinetyczna maleją'
+  - 'jego energia potencjalna i kinetyczna rosną'
+  correctAnswerId: 0
+
+- question: 'Jednostką ciśnienia w Układzie SI jest'
+  answers:
+  - '1 N'
+  - '1 P'
+  - '1 Pa'
+  - '1 m'
+  correctAnswerId: 2
+
+- question: '1 hPa = ...'
+  answers:
+  - '111 Pa'
+  - '1000 Pa'
+  - '10 Pa'
+  - '100 Pa'
+  correctAnswerId: 3
+
+- question: 'Paskal to ....'
+  answers:
+  - 'jednostka masy'
+  - 'ciśnienie jakie siła 1N wywiera na powierzchnię 1 m'
+  - 'siła nacisku'
+  - 'siła z jaką ciało działa na powierzchnię'
+  correctAnswerId: 1
+
+- question: '1 kPa='
+  answers:
+  - '1000 Pa'
+  - '100 Pa'
+  - '10 Pa'
+  - '10000 Pa'
+  correctAnswerId: 0
+
+- question: 'Dwie naelektryzowane pałeczki szklane...'
+  answers:
+  - 'przyciągają się'
+  - 'odpychają się'
+  - 'nie oddziałują na siebie'
+  - 'odpychają się tylko wtedy , gdy sie stykają'
+  correctAnswerId: 1
+
+- question: 'Jednostką ładunku jest...'
+  answers:
+  - 'metr'
+  - 'niuton'
+  - 'paskal'
+  - 'kulomb'
+  correctAnswerId: 3
+
+- question: 'Jednostką prędkości jest...'
+  answers:
+  - '1 s/m'
+  - '1 kg/s'
+  - '1 m/s'
+  - '1 m'
+  correctAnswerId: 2
+
+- question: 'Z jaką średnią prędkością jechał kierowca z miasta A do miasta B jeśli odległość 200 km pokonał w czasie 2 godzin ?'
+  answers:
+  - '100 km/h'
+  - '200 km/h'
+  - '50 hm/h'
+  - '400 km/h'
+  correctAnswerId: 0
+
+- question: 'W ruchu jednostajnym prędkość:'
+  answers:
+  - 'wzrasta'
+  - 'rośnie '
+  - 'maleje'
+  - 'nie zmienia się'
+  correctAnswerId: 3
+
+- question: 'Do zaćmienia Słońca dochodzi gdy'
+  answers:
+  - 'Słońce jest między Ziemia a Księżycem'
+  - 'Księżyc jest między Ziemia a Słońcem'
+  - 'Ziemia jest między Słońcem a Księżycem'
+  - 'Księżyc jest między Słońcem a Księżycem'
+  correctAnswerId: 1
+
+- question: 'Siła ciężkości to inaczej:'
+  answers:
+  - 'masa'
+  - 'moc'
+  - 'cieżar'
+  - 'odległość'
+  correctAnswerId: 2
+
+- question: 'Zjawisko unoszenia się ciepłych mas powietrza to:'
+  answers:
+  - 'dyfuzja'
+  - 'konwekcja'
+  - 'interferencja'
+  - 'napięcie powierzchniowe'
+  correctAnswerId: 1
+
+- question: 'Samochód jedzie ze stałą prędkością 60 km/h. Oblicz jaką drogę pokona w czasie 50 minut.'
+  answers:
+  - '30 km'
+  - '40 km'
+  - '50 km'
+  - '55 km'
+  correctAnswerId: 2
+
+- question: 'Jaką pracę wykonamy działając na ciało siłą 20N przesuwając je o 4m?'
+  answers:
+  - '80J'
+  - '24J'
+  - '5J'
+  - '16J'
+  correctAnswerId: 0
+
+- question: '5 kJ  to inaczej:'
+  answers:
+  - '500 J'
+  - '50 J'
+  - '0.005 J'
+  - '5000 J'
+  correctAnswerId: 3
+
+- question: 'Jeżeli człowiek wykonuje 20 oddechów w czasie 1 minuty, to ile wynosi częstotliwość jego oddychania?'
+  answers:
+  - '20 Hz'
+  - '3 Hz'
+  - '1/3 Hz'
+  - '1/20 Hz'
+  correctAnswerId: 2
+
+- question: 'Podstawową jednostką siły w międzynarodowym układzie jednostek jest:'
+  answers:
+  - '1 N'
+  - '1 m'
+  - '1 m\kg'
+  - '1 V'
+  correctAnswerId: 0
+
+- question: 'Jeżeli na ciało poruszające się ruchem jednostajnym prostoliniowym działają dwie siły, to obie mają:'
+  answers:
+  - 'jednakowe wartości i zwroty'
+  - 'jednakowe wartości i przeciwne zwroty'
+  - 'różne kierunki i zwroty'
+  - 'różne wartości'
+  correctAnswerId: 1
+
+- question: 'Które z ciał spadnie w powietrzu jako ostatnie, jeżeli puści się je równocześnie z tej samej wysokości?'
+  answers:
+  - 'klocek lego'
+  - 'jabłko'
+  - 'wszystkie spadną tak samo'
+  - 'kartka papieru'
+  correctAnswerId: 3
+
+- question: 'Którą z wymienionych sytuacji można wytłumaczyć bezwładnością ciała?'
+  answers:
+    - 'Wypuszczona z łuku strzała leci po zakrzywionym torze i spada na ziemię.'
+    - 'Biegnący chłopiec potknął się i upadł do przodu.'
+    - 'Piłka odbiła się od podłogi.'
+    - 'Zrzucony z pewnej wysokości kamień spada pionowo na ziemię.'
+  correctAnswerId: 1
+
+- question: 'Jeżeli ciało porusza się z niezmienną prędkością po linii prostej, to na pewno na to ciało:'
+  answers:
+    - 'działa siła o stałej wartości'
+    - 'nie działa żadna siła'
+    - 'działają siły, których wypadkowa jest równa zero lub nie działają żadne siły'
+    - 'działa siła o zmiennej wartości'
+  correctAnswerId: 2
+
+- question: 'Zasada akcji i reakcji to inaczej'
+  answers:
+    - 'III zasada dynamiki Newtona'
+    - 'I zasada dynamiki Newtona'
+    - 'II zasada dynamiki Newtona'
+    - 'Zasada bezwładności'
+  correctAnswerId: 0
+
+- question: 'Które z ciał spadnie w próżni jako ostatnie, jeżeli puści się je równocześnie z tej samej wysokości?'
+  answers:
+    - 'klocek lego'
+    - 'wszystkie spadną tak samo'
+    - 'piórko'
+    - 'kartka papieru'
+  correctAnswerId: 1
+
+- question: 'W której sytuacji mamy do czynienia z tarciem statycznym?'
+  answers:
+    - 'pisanie długopisem w zeszycie'
+    - 'przesuwanie szafy po śliskiej podłodze'
+    - 'hamowanie samochodu na asfalcie'
+    - 'zwisanie dywanu na trzepaku'
+  correctAnswerId: 3
+
+- question: 'Zasada bezwładności to inaczej:'
+  answers:
+    - 'I zasada dynamiki Newtona'
+    - 'III zasada dynamiki Newtona'
+    - 'II zasada dynamiki Newtona'
+    - 'zasada akcji i reakcji'
+  correctAnswerId: 0
+
+- question: '1m/s to?'
+  answers:
+    - '3.6 km/h'
+    - '10 km/h'
+    - '36 km/h'
+    - '1 km/h'
+  correctAnswerId: 0
+
+- question: 'Linia zakreślana przez poruszające się ciało to'
+  answers:
+    - 'układ odniesienia'
+    - 'droga'
+    - 'tor ruchu'
+    - 'prędkość'
+  correctAnswerId: 2
+
+- question: 'Jeśli częstotliwość fali wynosi 0,25 Hz, to okres drgań jest równy:'
+  answers:
+    - '0.5 s'
+    - '4 s'
+    - '2 s'
+    - '5 s'
+  correctAnswerId: 1
+
+- question: 'Jeśli kierunek drgań cząstek ośrodka jest zgodna z kierunkiem rozchodzenia się fali, to fala jest:'
+  answers:
+    - 'drgająca'
+    - 'podłużna'
+    - 'skośna'
+    - 'poprzeczna'
+  correctAnswerId: 1
+
+- question: 'Dźwięk wysoki ma:'
+  answers:
+    - 'dużą amplitudę'
+    - 'dużą długość fali'
+    - 'małą częstotliwość'
+    - 'wysoką częstotliwość'
+  correctAnswerId: 3
+
+- question: 'Które z fal należą do fal elektromagnetycznych?'
+  answers:
+    - 'fale dźwiękowe'
+    - 'fale radiowe'
+    - 'fale na morzu'
+    - 'ultradźwięki'
+  correctAnswerId: 1
+
+- question: 'Wskaż jednostkę częstotliwości w układzie SI.'
+  answers:
+    - 'herc'
+    - 'bel'
+    - 'sekunda'
+    - 'centymetr'
+  correctAnswerId: 0
+
+- question: 'Wskaż falę, ktora nie jest falą elektromagnetyczną'
+  answers:
+    - 'promieniowanie nadfioletowe'
+    - 'światło widzialne'
+    - 'fala radiowa'
+    - 'fala dźwiękowa'
+  correctAnswerId: 3
+
+- question: 'Wskaż właściwe dokończenie zdania. Częstotliwością drgań nazywa się'
+  answers:
+    - 'czas osiągnięcia amplitudy'
+    - 'największe wychylenie ciała z położenia równowagi'
+    - 'czas potrzebny do wykonania jednego pełnego drgania'
+    - 'liczbę drgań przypadającą w jednostce czasu.'
+  correctAnswerId: 3
+
+- question: 'Głośność dźwięku zależy od'
+  answers:
+    - 'prędkości'
+    - 'okresu'
+    - 'amplitudy'
+    - 'częstotliwości'
+  correctAnswerId: 2
+
+- question: 'Ładunki (elektryczne) jednoimienne to ładunki ...'
+  answers:
+    - 'tego samego znaku'
+    - 'różnych znaków'
+    - 'ładunek dodatni i ładunek ujemny'
+    - 'brak poprawnej odpowiedzi'
+  correctAnswerId: 0
+
+- question: 'Jeśli dwie kule naelektryzowano ładunkiem dodatnim, to będą się one...'
+  answers:
+    - 'odpychać'
+    - 'brak poprawnej odpowiedzi'
+    - 'przyciągac'
+    - 'nie będą oddziaływac'
+  correctAnswerId: 0
+
+- question: 'Dwa naelektryzowane ciała mogą :'
+  answers:
+    - 'przyciągać się'
+    - 'odpychać się'
+    - 'przyciągać się lub odpychać się'
+    - 'inna odpowiedź'
+  correctAnswerId: 2
+
+- question: 'Kto wymyślił piorunochron?'
+  answers:
+    - 'Barack Obama'
+    - 'Benjamin Franklin'
+    - 'James Watt'
+    - 'Anders Celsjusz'
+  correctAnswerId: 1
+
+- question: 'Przyrząd służący do sprawdzania, czy ciało jest naelektryzowane, to:'
+  answers:
+    - 'stetoskop'
+    - 'mikroskop'
+    - 'elektroskop'
+    - 'oscyloskop'
+  correctAnswerId: 2
+
+- question: 'Która z wymienionych substancji jest izolatorem elektrycznym?'
+  answers:
+    - 'szkło'
+    - 'złoto'
+    - 'żelao'
+    - 'miedź'
+  correctAnswerId: 0
+
+- question: 'Gromadzenie przez ciało ładunku elektrycznego jednego znaku to :'
+  answers:
+    - 'Zbieractwo'
+    - 'Elektryzowanie się'
+    - 'Zobojętnienie'
+    - 'Uziemienie'
+  correctAnswerId: 1
+
+- question: 'Jądro atomu tworzą:'
+  answers:
+    - 'elektrony'
+    - 'elektrony, protony i neutrony'
+    - 'protony i elektrony'
+    - 'protony i neutrony'
+  correctAnswerId: 3
+
+- question: 'Atom jest elektrycznie obojętny. Oznacza to, że:'
+  answers:
+    - 'z jego powłoki elektronowej zostały oderwane elektrony'
+    - 'przyjął on na swoją powłokę walencyjną jeden lub kilka elektronów'
+    - 'posiada taką samą liczbę elektronów i protonów'
+    - 'posiada taką samą liczbę neutronów i protonów'
+  correctAnswerId: 2
+
+- question: 'Benjamin Franklin wynalazł:'
+  answers:
+    - 'piorunochron'
+    - 'ogniwo galwaniczne'
+    - 'stetoskop'
+    - 'żarówkę'
+  correctAnswerId: 0
+
+- question: 'Które ze zjawisk jest wynikiem elektryzowania ciał:'
+  answers:
+    - 'drzwi lodówki przyciąga magnes'
+    - 'ziemia przyciąga spadający kamień'
+    - 'rzucona piłka odbija się od podłogi'
+    - 'Czapka zdejmowana szybkim ruchem przyciąga włosy'
+  correctAnswerId: 3
+
+- question: 'Przykładem elektryzowania przez tarcie jest:'
+  answers:
+    - 'dotykanie balonika'
+    - 'czesanie włosów grzebieniem'
+    - 'zbliżanie laseczki ebonitowej do elektroskopu'
+    - 'zbliżanie długopisu do papieru'
+  correctAnswerId: 1
+
+- question: 'Wybierz zdanie Fałszywe'
+  answers:
+    - 'Ciężar jest siłą'
+    - 'Jednostką ciężaru jest kilogram'
+    - 'Jądro atomu tworzą protony i neutrony'
+    - 'masa ciała na Ziemi i na Księżycu jest taka sama'
+  correctAnswerId: 1
+
+- question: 'ciała stałe, ciecze i gazy ze wzrostem temperatury'
+  answers:
+    - 'nie zmieniają objętości'
+    - 'zwiększają objętość'
+    - 'zmniejszają objętość'
+    - 'czasami zmniejszają, a czasami zwiększają objętość'
+  correctAnswerId: 1
+
+- question: 'Gdy temperatura ciała wzrasta , to jego gęstość'
+  answers:
+    - 'maleje'
+    - 'wzrasta'
+    - 'nie zmienia się'
+    - 'czasem maleje, a czasem wzrasta'
+  correctAnswerId: 0
+
+- question: 'Zmiana cieczy w ciało stałe to?'
+  answers:
+    - 'topnienie'
+    - 'parowanie'
+    - 'sublimacja'
+    - 'krzepnięcie'
+  correctAnswerId: 3
+
+- question: 'Przejście gazu w ciecz to?'
+  answers:
+    - 'krzepniecie'
+    - 'parowanie'
+    - 'topnienie'
+    - 'skraplanie'
+  correctAnswerId: 3
+
+- question: 'Do pomiaru napięcia elektrycznego stosuje się :'
+  answers:
+    - 'woltomierz'
+    - 'amperomierz'
+    - 'termometr'
+    - 'oscyloskop'
+  correctAnswerId: 0
+
+- question: 'Do pomiaru natężenia prądu elektrycznego stosuje się :'
+  answers:
+    - 'woltomierz'
+    - 'amperomierz'
+    - 'termometr'
+    - 'oscyloskop'
+  correctAnswerId: 1
+
+- question: 'Jednostką natężenia prądu elektrycznego jest:'
+  answers:
+    - 'wolt'
+    - 'amper'
+    - 'cm'
+    - 'wat'
+  correctAnswerId: 1
+
+- question: 'Jednostką napięcia elektrycznego to:'
+  answers:
+    - 'dżul'
+    - 'amper'
+    - 'wat'
+    - 'wolt'
+  correctAnswerId: 3
+
+- question: 'Do prześwietleń (np. w przypadku złamania kości) wykorzystujemy:'
+  answers:
+    - 'promieniowanie gamma'
+    - 'promieniowanie podczerwone'
+    - 'promieniowanie rentgenowskie'
+    - 'mikrofale'
+  correctAnswerId: 2
+
+- question: 'W kuchence mikrofalowej wykorzystujemy;'
+  answers:
+    - 'mikrofale'
+    - 'promieniowanie X'
+    - 'promieniowanie podczerwone'
+    - 'promieniowanie gamma'
+  correctAnswerId: 0
+
+- question: 'Jaki biegun magnetyczny znajduje się w okolicy północnego bieguna geograficznego Ziemi?'
+  answers:
+    - 'Północny'
+    - 'Południowy'
+    - 'Zachodni'
+    - 'Wschodni'
+  correctAnswerId: 1
+
+- question: 'Temperatura wrzenia wody wysoko w górach jest:'
+  answers:
+    - 'niższa niż 100 stopni C'
+    - 'wyższa niż 100 stopni C'
+    - 'taka sama jak nad morzem'
+    - 'zawsze jest równa 100 stopni C'
+  correctAnswerId: 0
+
+- question: 'Jednostką jakiej wielkości fizycznej jest rok świetlny?'
+  answers:
+    - 'czasu'
+    - 'odległości'
+    - 'temperatury'
+    - 'żadnej z powyższych'
+  correctAnswerId: 1
+
+- question: 'Jak nazywa się zjawisko samorzutnego mieszania się atomów różnych substancji?'
+  answers:
+    - 'dyfuzja'
+    - 'sublimacja'
+    - 'krzepnięcie'
+    - 'topnienie'
+  correctAnswerId: 0
+
+- question: 'Podstawową jednostką masy w układzie SI jest:'
+  answers:
+    - 'gram'
+    - 'kilogram'
+    - 'tona'
+    - 'megatona'
+  correctAnswerId: 1
+
+- question: 'Prędkość jaką należy nadać obiektowi, aby opuścił na zawsze dane ciało niebieskie, poruszając się dalej ruchem swobodnym, to:'
+  answers:
+    - 'pierwsza prędkość kosmiczna'
+    - 'druga prędkość kosmiczna'
+    - 'trzecia prędkość kosmiczna'
+    - 'prędkość kosmiczna'
+  correctAnswerId: 1
+
+- question: 'Substancje zbudowane są z: a) ciał fizycznych, b) cząsteczek i atomów, c) brył, d) pierwiastków.'
+  answers:
+    - 'a'
+    - 'b'
+    - 'c'
+    - 'd'
+  correctAnswerId: 1
+
+- question: 'Do wartości wektorowych należą:'
+  answers:
+    - 'zwrot, kierunek, ilość Newtonów, punkt zaczepności'
+    - 'zwrot, prosta działania, wartość siłowa, punkt Avogarda'
+    - 'punkt przyłożenia, zwrot, kierunek, wartość'
+    - 'żadne z powyższych'
+  correctAnswerId: 3
+
+- question: 'Według modelu Bohra elektrony krążą wokół jądra pod wpływem sił:'
+  answers:
+    - 'elektrycznych'
+    - 'magnetycznych'
+    - 'grawitacyjnych'
+    - 'jądrowych'
+  correctAnswerId: 0
+
+- question: 'Które z podanych stanów nie istnieje'
+  answers:
+    - 'ciekły'
+    - 'stały'
+    - 'gazowy'
+    - 'połstały'
+  correctAnswerId: 3
+
+- question: 'mianem jakiego stanu określamy kamien?'
+  answers:
+    - 'ciekły'
+    - 'stały'
+    - 'gazowy'
+    - 'kamieniasty'
+  correctAnswerId: 1
+
+- question: 'Do oddziaływań na odległość należą:'
+  answers:
+    - 'oddziaływanie elektrostatyczne'
+    - 'oddziaływanie magnetyczne'
+    - 'grawitacja'
+    - 'tarcie'
+  correctAnswerId: 3
+
+- question: 'Ile znasz zasad dynamiki Newtona?'
+  answers:
+    - '1'
+    - '2'
+    - '3'
+    - '0'
+  correctAnswerId: 2
+
+- question: 'Jednostką siły jest:'
+  answers:
+    - 'niuton'
+    - 'wat'
+    - 'koń mechaniczny'
+    - 'kilowat'
+  correctAnswerId: 0
+
+- question: 'Jaki kierunek ma siła działająca na lampę wiszącą na suficie?'
+  answers:
+    - 'poziomy'
+    - 'pionowy'
+    - 'w dół'
+    - 'w góre'
+  correctAnswerId: 1
