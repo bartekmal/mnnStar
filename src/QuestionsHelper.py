@@ -1,7 +1,10 @@
-import random
-import os
-import sys
+#!/usr/bin/env python
+
 import io
+import os
+import random
+import sys
+
 import yaml
 
 
@@ -32,12 +35,12 @@ def getDataFromFile(fileName):
     return data
 
 
-def getRandomisedQuestionsList():
+def getRandomisedQuestionsList(fileName):
 
     randomisedQuestionsList = []
 
     # load the input data
-    entries = getDataFromFile('questions.yml')
+    entries = getDataFromFile(fileName)
 
     # validate the input data
     if not entries:

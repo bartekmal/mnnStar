@@ -1,15 +1,39 @@
-import pygame
-import pygame_menu
+#!/usr/bin/env python
+
+import os
 import sys
 
-from QuestionsHelper import *
+import pygame
+import pygame_menu
 
 # --> config part
 nrOfQuestionsToAsk = 10
 # <-- end of config
 
+# get run-time path (needed to run both uncompiled / compiled versions)
+frozen = 'not'
+if getattr(sys, 'frozen', False):
+    # we are running in a bundle
+    frozen = 'ever so'
+    bundle_dir = sys._MEIPASS
+else:
+    # we are running in a normal Python environment
+    bundle_dir = os.path.dirname(os.path.abspath(__file__))
+    sys.path.append(os.path.join(bundle_dir, 'src'))
+
+# --> input paths
+pathFontGame = os.path.join(
+    bundle_dir, 'src', 'resources', 'fonts', 'freesansbold.ttf')
+pathFontMenu = os.path.join(
+    bundle_dir, 'src', 'resources', 'fonts', 'opensans_regular.ttf')
+pathQuestions = os.path.join(bundle_dir, 'input', 'questions.yml')
+pathAnimations = os.path.join(bundle_dir, 'src', 'resources', 'animations')
+# <-- end of input paths
+
 # prepare and validate a list of questions
-questionsList = getRandomisedQuestionsList()
+from QuestionsHelper import *
+
+questionsList = getRandomisedQuestionsList(pathQuestions)
 if not questionsList or (len(questionsList) < nrOfQuestionsToAsk):
     print("Lista pytań jest zbyt krótka.")
     sys.exit(1)
@@ -20,9 +44,10 @@ screen = pygame.display.set_mode((1500, 800))
 
 intro = True
 name = 'Nieznajomy!'
-menupic = ['animations/menu1.png', 'animations/menu2.png', 'animations/menu3.png',
-           'animations/menu4.png', 'animations/menu5.png', 'animations/menu6.png']
-answergif = ['animations/odp1.png', 'animations/odp2.png']
+menupic = [os.path.join(pathAnimations, 'menu{}.png'.format(i))
+           for i in range(1, 7)]
+answergif = [os.path.join(pathAnimations, 'odp{}.png'.format(i))
+             for i in range(1, 3)]
 currentQuestionNr = 0
 ani1 = start_ticks = pygame.time.get_ticks()
 ani2 = start_ticks = pygame.time.get_ticks()
@@ -35,8 +60,8 @@ score = 0
 game = False
 
 
-def add_text(string, position, size=30):
-    font = pygame.font.SysFont("freesansbold.ttf", size)
+def add_text(string, position, size=20):
+    font = pygame.font.Font(pathFontGame, size)
     text = font.render(string, True, (255, 255, 255))
     text_rect = text.get_rect(center=position)
     screen.blit(text, text_rect)
@@ -59,7 +84,7 @@ def button(msg, x, y, w, h, ic, ac, action=None, answerId=None):
             action()
     else:
         pygame.draw.rect(screen, ic, (x, y, w, h))
-    add_text(msg, (x+(w/2), y+(h/2)))
+    add_text(msg, (int(x+(w/2)), int(y+(h/2))))
 
 
 def endIntro():
@@ -137,14 +162,14 @@ def start_the_game():
 
         # show intro
         if intro:
-            font = pygame.font.SysFont("", 80)
+            font = pygame.font.Font(pathFontGame, 50)
             text = font.render("Witaj", True, (255, 255, 255))
             text1 = font.render(name, True, (255, 255, 255))
             screen.fill((40, 41, 35))
             screen.blit(text, (0, 0))
             screen.blit(text1, (150, 0))
-            add_text("Pomóż mi stać się większą gwiazdą!", (370, 80), 60)
-            add_text("Odpowiadaj poprawnie na pytania, a urosnę!", (445, 120), 60)
+            add_text("Pomóż mi stać się większą gwiazdą!", (370, 80), 35)
+            add_text("Odpowiadaj poprawnie na pytania, a urosnę!", (445, 120), 35)
             button("Graj!", 650, 400, 200, 100,
                    (24, 199, 24), (0, 255, 0), endIntro)
             animation1()
@@ -155,12 +180,12 @@ def start_the_game():
 
             # print the current question number and score
             add_text("Nr pytania: "+str(currentQuestionNr+1) +
-                     " / " + str(nrOfQuestionsToAsk), (740, 660), 50)
-            add_text("Zdobyte punkty: "+str(score), (740, 700), 50)
+                     " / " + str(nrOfQuestionsToAsk), (740, 660), 30)
+            add_text("Zdobyte punkty: "+str(score), (740, 700), 30)
 
             # print the current question
             currentQuestionEntry = questionsList[currentQuestionNr]
-            add_text(currentQuestionEntry.question, (750, 100), 40)
+            add_text(currentQuestionEntry.question, (750, 100), 30)
             button(currentQuestionEntry.answers[0], 100, 300, 600, 100, (24,
                                                                          199, 24), (0, 255, 0), processAnswer, 0)
             button(currentQuestionEntry.answers[1], 800, 300, 600, 100, (24,
@@ -180,8 +205,8 @@ def start_the_game():
             text1 = font.render(name, True, (255, 255, 255))
             screen.blit(text, (0, 0))
             screen.blit(text1, (200, 0))
-            add_text("Zdobyłeś: ", (110, 400), 60)
-            add_text(str(score) + " pkt!", (400, 400), 60)
+            add_text("Zdobyłeś: ", (110, 400), 40)
+            add_text(str(score) + " pkt!", (400, 400), 40)
             button("Wyjdź", 650, 500, 200, 100,
                    (24, 199, 24), (0, 255, 0), exitGame)
 
@@ -189,7 +214,11 @@ def start_the_game():
         clock.tick(60)
 
 
-menu = pygame_menu.Menu(800, 1500, 'Quiz', theme=pygame_menu.themes.THEME_DARK)
+menu_theme = pygame_menu.themes.THEME_DARK.copy()
+menu_theme.widget_font = pathFontMenu
+menu_theme.title_font = pathFontMenu
+
+menu = pygame_menu.Menu(800, 1500, 'Quiz', theme=menu_theme)
 menu.add_text_input('Imię: ', onchange=set_name)
 menu.add_vertical_margin(100)
 menu.add_button('Graj!', start_the_game)
