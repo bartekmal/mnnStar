@@ -51,6 +51,7 @@ answergif = [os.path.join(pathAnimations, 'odp{}.png'.format(i))
 currentQuestionNr = 0
 ani1 = start_ticks = pygame.time.get_ticks()
 ani2 = start_ticks = pygame.time.get_ticks()
+scaleFactor = 100/nrOfQuestionsToAsk
 i = 0
 i2 = 0
 
@@ -100,13 +101,14 @@ def exitGame():
     sys.exit(0)
 
 
-def animation1():
+def animation1(scaleX = 100, scaleY = 100, PosX = 1300, PosY = 0):
     for i in (0, 5):
         pic = pygame.image.load(menupic[i])
-        screen.blit(pic, (1350, 0))
+        pic = pygame.transform.scale(pic, (int(scaleX), int(scaleY)))
+        screen.blit(pic, (int(PosX), int(PosY)))
         pygame.display.update()
         pygame.time.delay(100)
-        pygame.draw.rect(screen, (40, 41, 35), (1300, 0, 200, 100))
+        pygame.draw.rect(screen, (40, 41, 35), (int(PosX), int(PosY), int(200*(scaleX/100)), int(100*(scaleY/100))))
 
 
 def animation2():
@@ -207,8 +209,10 @@ def start_the_game():
             screen.blit(text1, (200, 0))
             add_text("Zdobyłeś: ", (110, 400), 40)
             add_text(str(score) + " pkt!", (400, 400), 40)
-            button("Wyjdź", 650, 500, 200, 100,
+            button("Wyjdź", 650, 600, 200, 100,
                    (24, 199, 24), (0, 255, 0), exitGame)
+            animation1((scaleFactor * nrOfQuestionsToAsk) + (score * 15), (scaleFactor * nrOfQuestionsToAsk) + (score * 15), (1500 - scaleFactor * 20), (0 + scaleFactor * 2))
+
 
         pygame.display.update()
         clock.tick(60)
