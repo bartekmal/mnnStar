@@ -212,9 +212,7 @@ def start_the_game():
             button("Wyjdź", 650, 600, 200, 100,
                    (24, 199, 24), (0, 255, 0), exitGame)
             animation1((scaleFactor * nrOfQuestionsToAsk) + (score * 15), (scaleFactor * nrOfQuestionsToAsk) + (score * 15), (1500 - scaleFactor * 20), (0 + scaleFactor * 2))
-            print((scaleFactor * nrOfQuestionsToAsk) + (score * 15))
-            print((1500 - scaleFactor * 20))
-            print((800 + scaleFactor * 2))
+
 
         pygame.display.update()
         clock.tick(60)
