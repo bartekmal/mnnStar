@@ -6,8 +6,10 @@ import sys
 import pygame
 import pygame_menu
 
+import textwrap
+
 # --> config part
-nrOfQuestionsToAsk = 10
+nrOfQuestionsToAsk = 20
 # <-- end of config
 
 # get run-time path (needed to run both uncompiled / compiled versions)
@@ -61,11 +63,24 @@ score = 0
 game = False
 
 
-def add_text(string, position, size=20):
+def add_text(string, position, size=20, max_line_length=100, max_nr_of_lines=3):
+
+    # scale the font size properly
+    nr_of_lines = len(string) // max_line_length + 1
+    if nr_of_lines > max_nr_of_lines:
+        size = int(size * max_nr_of_lines / nr_of_lines)
+    factor_for_line_splitting = 1.1
     font = pygame.font.Font(pathFontGame, size)
-    text = font.render(string, True, (255, 255, 255))
-    text_rect = text.get_rect(center=position)
-    screen.blit(text, text_rect)
+
+    # split the text into lines
+    lines = textwrap.wrap(string, max_line_length, break_long_words=False)
+
+    for i in range(len(lines)):
+        text = font.render(lines[i], True, (255, 255, 255))
+        # place the text with a proper offset in Y
+        text_rect = text.get_rect(
+            center=(position[0], position[1] + int(size * factor_for_line_splitting * (i - (nr_of_lines-1)/2))))
+        screen.blit(text, text_rect)
 
 
 def set_name(player_name):
@@ -85,7 +100,8 @@ def button(msg, x, y, w, h, ic, ac, action=None, answerId=None):
             action()
     else:
         pygame.draw.rect(screen, ic, (x, y, w, h))
-    add_text(msg, (int(x+(w/2)), int(y+(h/2))))
+    add_text(msg, (int(x+(w/2)), int(y+(h/2))),
+             max_line_length=40, max_nr_of_lines=3)
 
 
 def endIntro():
@@ -101,14 +117,16 @@ def exitGame():
     sys.exit(0)
 
 
-def animation1(scaleX = 100, scaleY = 100, PosX = 1300, PosY = 0):
-    for i in (0, 5):
+def animation1(scaleX=100, scaleY=100, PosX=1200, PosY=200):
+    for i in range(len(menupic)):
         pic = pygame.image.load(menupic[i])
+        pic_rect = pic.get_rect(center=(int(PosX), int(PosY)))
         pic = pygame.transform.scale(pic, (int(scaleX), int(scaleY)))
-        screen.blit(pic, (int(PosX), int(PosY)))
+        pic_rect_scaled = pic.get_rect(center=(int(PosX), int(PosY)))
+        screen.blit(pic, pic_rect)
         pygame.display.update()
         pygame.time.delay(100)
-        pygame.draw.rect(screen, (40, 41, 35), (int(PosX), int(PosY), int(200*(scaleX/100)), int(100*(scaleY/100))))
+        pygame.draw.rect(screen, (40, 41, 35), pic_rect_scaled)
 
 
 def animation2():
@@ -187,7 +205,8 @@ def start_the_game():
 
             # print the current question
             currentQuestionEntry = questionsList[currentQuestionNr]
-            add_text(currentQuestionEntry.question, (750, 100), 30)
+            add_text(currentQuestionEntry.question, (750, 80),
+                     30, max_line_length=85, max_nr_of_lines=3)
             button(currentQuestionEntry.answers[0], 100, 300, 600, 100, (24,
                                                                          199, 24), (0, 255, 0), processAnswer, 0)
             button(currentQuestionEntry.answers[1], 800, 300, 600, 100, (24,
@@ -211,8 +230,8 @@ def start_the_game():
             add_text(str(score) + " pkt!", (400, 400), 40)
             button("Wyjdź", 650, 600, 200, 100,
                    (24, 199, 24), (0, 255, 0), exitGame)
-            animation1((scaleFactor * nrOfQuestionsToAsk) + (score * 15), (scaleFactor * nrOfQuestionsToAsk) + (score * 15), (1500 - scaleFactor * 20), (0 + scaleFactor * 2))
-
+            animation1((scaleFactor * nrOfQuestionsToAsk) + (score * 15), (scaleFactor *
+                                                                           nrOfQuestionsToAsk) + (score * 15))
 
         pygame.display.update()
         clock.tick(60)
