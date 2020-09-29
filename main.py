@@ -145,7 +145,7 @@ def animation1(scaleX=100, scaleY=100, PosX=1200, PosY=200):
         screen.blit(pic, pic_rect)
         pygame.display.update()
         pygame.time.delay(100)
-        pygame.draw.rect(screen, (40, 41, 35), (int(PosX - 15 * scaleFactor), int(PosY - 15 * scaleFactor), int(scaleX * scaleFactor / 2), int(scaleY * scaleFactor / 2)))
+        pygame.draw.rect(screen, (40, 41, 35), (870, 0, 700, 650))
 
 
 def animation2():
