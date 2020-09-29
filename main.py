@@ -56,7 +56,7 @@ Zero50 = ["Każde wielkie osiągnięcie zaczyna się decyzja by spróbować. ~ A
                  "Być zwyciężonym i nie ulec to zwycięstwo, zwyciężyć i osiąść na laurach to klęska. ~ Marszałek Józef Piłsudski"]
 
 Zero75 = ["Zadaj sobie pytanie: Czy mogę dać z siebie więcej? Odpowiedź brzmi zwykle: Tak. ~ Paul Tergat",
-                 "Możesz zrobić wszystko, co chcesz jeśli tylko trzymasz się tego celu wystarczająco długo. ~ Helen Keller"
+                 "Możesz zrobić wszystko, co chcesz jeśli tylko trzymasz się tego celu wystarczająco długo. ~ Helen Keller",
                  "Cokolwiek umysł jest w stanie sobie wyobrazić jest to w stanie osiągnąć. ~ Napoleon Hill"]
 
 Jeden = ["Najważniejszym i największym triumfem człowieka jest zwycięstwo nad samym sobą. ~ Platon",
