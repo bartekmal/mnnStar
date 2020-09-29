@@ -145,7 +145,7 @@ def animation1(scaleX=100, scaleY=100, PosX=1200, PosY=200):
         screen.blit(pic, pic_rect)
         pygame.display.update()
         pygame.time.delay(100)
-        pygame.draw.rect(screen, (40, 41, 35), (PosX - 15 * scaleFactor, PosY - 15 * scaleFactor, scaleX * scaleFactor / 2, scaleY * scaleFactor / 2))
+        pygame.draw.rect(screen, (40, 41, 35), (int(PosX - 15 * scaleFactor), int(PosY - 15 * scaleFactor), int(scaleX * scaleFactor / 2), int(scaleY * scaleFactor / 2)))
 
 
 def animation2():
@@ -165,7 +165,6 @@ def restart():
     global intro
     global game
     global userAnswerId
-    print("d")
     score = 0
     intro = True
     game = False
