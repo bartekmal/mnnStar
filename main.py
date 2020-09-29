@@ -7,6 +7,7 @@ import pygame
 import pygame_menu
 
 import textwrap
+import random
 
 # --> config part
 nrOfQuestionsToAsk = 20
@@ -46,6 +47,23 @@ screen = pygame.display.set_mode((1500, 800))
 
 intro = True
 name = 'Nieznajomy!'
+Zero25 = ["Poddający się – nigdy nie wygrywa, a wygrywający – nigdy się nie poddaje. ~ Napoleon Hill",
+                "Potykając się, można zajść daleko, nie wolno tylko upaść i nie podnieść się. ~ Johan Wolfgang Goethe",
+                "Musisz wierzyć w siebie wtedy, gdy nikt inny w Ciebie nie wierzy – to czyni Cię wygranym już na początku. ~ Venus Williams"]
+
+Zero50 = ["Każde wielkie osiągnięcie zaczyna się decyzja by spróbować. ~ Anthony Robbins",
+                 "Kto ma cierpliwość, będzie miał, co zechce. ~ Abraham Lincoln",
+                 "Być zwyciężonym i nie ulec to zwycięstwo, zwyciężyć i osiąść na laurach to klęska. ~ Marszałek Józef Piłsudski"]
+
+Zero75 = ["Zadaj sobie pytanie: Czy mogę dać z siebie więcej? Odpowiedź brzmi zwykle: Tak. ~ Paul Tergat",
+                 "Możesz zrobić wszystko, co chcesz jeśli tylko trzymasz się tego celu wystarczająco długo. ~ Helen Keller"
+                 "Cokolwiek umysł jest w stanie sobie wyobrazić jest to w stanie osiągnąć. ~ Napoleon Hill"]
+
+Jeden = ["Najważniejszym i największym triumfem człowieka jest zwycięstwo nad samym sobą. ~ Platon",
+         "Ten, kto przeniósł górę, zaczął od małych kamyków.",
+         "Sukces to suma niewielkiego wysiłku powtarzanego z dnia na dzień. ~ Robert Collier"]
+quotation = random.randint(0, 2)
+
 menupic = [os.path.join(pathAnimations, 'menu{}.png'.format(i))
            for i in range(1, 7)]
 answergif = [os.path.join(pathAnimations, 'odp{}.png'.format(i))
@@ -53,6 +71,7 @@ answergif = [os.path.join(pathAnimations, 'odp{}.png'.format(i))
 currentQuestionNr = 0
 ani1 = start_ticks = pygame.time.get_ticks()
 ani2 = start_ticks = pygame.time.get_ticks()
+
 scaleFactor = 100/nrOfQuestionsToAsk
 i = 0
 i2 = 0
@@ -126,7 +145,7 @@ def animation1(scaleX=100, scaleY=100, PosX=1200, PosY=200):
         screen.blit(pic, pic_rect)
         pygame.display.update()
         pygame.time.delay(100)
-        pygame.draw.rect(screen, (40, 41, 35), pic_rect_scaled)
+        pygame.draw.rect(screen, (40, 41, 35), (PosX - 15 * scaleFactor, PosY - 15 * scaleFactor, scaleX * scaleFactor / 2, scaleY * scaleFactor / 2))
 
 
 def animation2():
@@ -228,7 +247,20 @@ def start_the_game():
             screen.blit(text1, (200, 0))
             add_text("Zdobyłeś: ", (110, 400), 40)
             add_text(str(score) + " pkt!", (400, 400), 40)
-            button("Wyjdź", 650, 600, 200, 100,
+            proc = score/nrOfQuestionsToAsk
+            if proc <= 0.205:
+                add_text(Zero25[quotation], (750, 700))
+
+            elif proc >= 0.206 and proc <= 0.50:
+                add_text(Zero50[quotation], (750, 700))
+
+            elif proc >= 0.501 and proc <= 0.75:
+                add_text(Zero75[quotation], (750, 700))
+
+            else:
+                add_text(Jeden[quotation], (750, 700))
+
+            button("Wyjdź", 650, 500, 200, 100,
                    (24, 199, 24), (0, 255, 0), exitGame)
             animation1((scaleFactor * nrOfQuestionsToAsk) + (score * 15), (scaleFactor *
                                                                            nrOfQuestionsToAsk) + (score * 15))
