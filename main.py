@@ -136,7 +136,7 @@ def exitGame():
     sys.exit(0)
 
 
-def animation1(scaleX=100, scaleY=100, PosX=1200, PosY=200):
+def animation1(scaleX=100, scaleY=100, PosX=1200, PosY=200, RectX = 850):
     for i in range(len(menupic)):
         pic = pygame.image.load(menupic[i])
         pic_rect = pic.get_rect(center=(int(PosX), int(PosY)))
@@ -145,7 +145,7 @@ def animation1(scaleX=100, scaleY=100, PosX=1200, PosY=200):
         screen.blit(pic, pic_rect)
         pygame.display.update()
         pygame.time.delay(100)
-        pygame.draw.rect(screen, (40, 41, 35), (870, 0, 700, 650))
+        pygame.draw.rect(screen, (40, 41, 35), (RectX, 0, 700, 650))
 
 
 def animation2():
@@ -204,13 +204,14 @@ def start_the_game():
             text = font.render("Witaj", True, (255, 255, 255))
             text1 = font.render(name, True, (255, 255, 255))
             screen.fill((40, 41, 35))
-            screen.blit(text, (0, 0))
-            screen.blit(text1, (150, 0))
-            add_text("Pomóż mi stać się większą gwiazdą!", (370, 80), 35)
-            add_text("Odpowiadaj poprawnie na pytania, a urosnę!", (445, 120), 35)
-            button("Graj!", 650, 400, 200, 100,
+            screen.blit(text, (500, 20))
+            screen.blit(text1, (650, 20))
+            add_text("Ogromna Galaktyka, nazywana Drogą Mleczną, to nasz międzygwiezdny DOM. Tutaj też żyje mała Protogwiazda Vena, która bardzo chce w przyszłości stać się Białym Karłem, tak jak większość jej kolegów. Jeżeli chcesz pomóc, to musisz jej dostarczyć międzygalaktyczne paliwo, którym jest wodór. Jak tego dokonać? To nic trudnego! Wejdź do gry i odpowiadaj na pytania, by Vena mogła spełnić swoje marzenia i zabłysnąć!",
+                     (750, 300), 35, max_line_length=50, max_nr_of_lines=10)
+
+            button("Graj!", 650, 600, 200, 100,
                    (24, 199, 24), (0, 255, 0), endIntro)
-            animation1()
+            animation1(100, 100, 1400, 50, 1300)
 
         # show game (questions)
         if game:
@@ -240,26 +241,27 @@ def start_the_game():
         # show summary and exit
         if game == False and intro == False:
             screen.fill((40, 41, 35))
-            text = font.render("Dzięki", True, (255, 255, 255))
+            text = font.render("Brawo!", True, (255, 255, 255))
             text1 = font.render(name, True, (255, 255, 255))
             screen.blit(text, (0, 0))
             screen.blit(text1, (200, 0))
-            add_text("Zdobyłeś: ", (110, 400), 40)
-            add_text(str(score) + " pkt!", (400, 400), 40)
+            add_text("Widzę, że starałeś się z całych sił, by pomóc małej Venie. Dzięki Tobie urosła! Możesz ją teraz obserwować na nocnym niebie w towarzystwie Syriusza!", (380, 200), 25, 60, 5)
+            add_text("Zdobyłeś: ", (110, 350), 40)
+            add_text(str(score) + " pkt!", (400, 350), 40)
             proc = score/nrOfQuestionsToAsk
             if proc <= 0.205:
-                add_text(Zero25[quotation], (750, 700))
+                add_text(Zero25[quotation], (750, 780))
 
             elif proc >= 0.206 and proc <= 0.50:
-                add_text(Zero50[quotation], (750, 700))
+                add_text(Zero50[quotation], (750, 780))
 
             elif proc >= 0.501 and proc <= 0.75:
-                add_text(Zero75[quotation], (750, 700))
+                add_text(Zero75[quotation], (750, 780))
 
             else:
-                add_text(Jeden[quotation], (750, 700))
+                add_text(Jeden[quotation], (750, 780))
 
-            button("Wyjdź", 650, 500, 200, 100,
+            button("Wyjdź", 650, 600, 200, 100,
                    (24, 199, 24), (0, 255, 0), exitGame)
             animation1((scaleFactor * nrOfQuestionsToAsk) + (score * 15), (scaleFactor *
                                                                            nrOfQuestionsToAsk) + (score * 15))
