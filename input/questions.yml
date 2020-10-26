@@ -62,14 +62,6 @@
   - 'Pa, hPa, kPa'
   correctAnswerId: 3
 
-- question: ''
-  answers:
-  - '10 Pa'
-  - '1000 Pa'
-  - '100 Pa'
-  - '760 Pa'
-  correctAnswerId: 2
-
 - question: 'Jak zachowuje się ciśnienie hydrostatyczne wraz ze wzrostem głębokości?'
   answers:
   - 'rośnie'
@@ -117,14 +109,6 @@
   - 'siły działające na to ciało równoważą się'
   - 'ciało unosi się na powierzchni'
   correctAnswerId: 3
-
-- question: 'Jeśli gęstość ciała jest równa gęstości cieczy lub gazu to:'
-  answers:
-  - 'ciało tonie'
-  - 'ciało unosi się na powierzchni'
-  - 'ciało unosi się - nie tonie, ani nie wypływa'
-  - ''
-  correctAnswerId: 2
 
 - question: 'Na czym polega resublimacja?'
   answers:
