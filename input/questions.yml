@@ -24,10 +24,10 @@
 
 - question: 'Wskaż zdanie prawdziwe'
   answers:
-  - 'w prasie hydraulicznej zastosowanie ma prawo Pascala'
-  - 'ryby regulują swoje zanurzenie używając prawa Pascala'
+  - 'W prasie hydraulicznej zastosowanie ma prawo Pascala'
+  - 'Ryby regulują swoje zanurzenie używając prawa Pascala'
   - 'Balony unoszą się w powietrzu dzięki prawu Pascala'
-  - 'prawo Pascala dotyczy prądu elektrycznego'
+  - 'Prawo Pascala dotyczy prądu elektrycznego'
   correctAnswerId: 0
 
 - question: 'Ciśnienie hydrostatyczne zależy od:'
@@ -74,7 +74,7 @@
   answers:
   - 'gęstości cieczy'
   - 'wysokości słupa cieczy'
-  - 'kształtu naczynia w którym znajduje się ciecz'
+  - 'kształtu naczynia, w którym znajduje się ciecz'
   - 'przyspieszenia grawitacyjnego'
   correctAnswerId: 2
 
@@ -134,7 +134,7 @@
   - 'inną'
   correctAnswerId: 1
 
-- question: 'Stosunek masy do objętości wyrażony w gramach na metr sześćienny to:'
+- question: 'Stosunek masy do objętości wyrażony w gramach na metr sześcienny to:'
   answers:
   - 'gęstość'
   - 'prędkość'
@@ -142,7 +142,7 @@
   - 'energię'
   correctAnswerId: 0
 
-- question: '0,12 t = ..... kg'
+- question: '0.12 t = ..... kg'
   answers:
   - '1.2'
   - '1200'
@@ -166,7 +166,7 @@
   - 'półstały'
   correctAnswerId: 3
 
-- question: 'czym mierzymy ciśnienie atmosweryczne'
+- question: 'Czym mierzymy ciśnienie atmosferyczne'
   answers:
   - 'barometr'
   - 'ciśnieniomierz'
@@ -174,7 +174,7 @@
   - 'wietrzomierz'
   correctAnswerId: 0
 
-- question: 'Gdzie mamy do czynienia ze stanem ciekłym'
+- question: 'Gdzie mamy do czynienia ze stanem ciekłym?'
   answers:
   - 'kreda'
   - 'woda'
@@ -182,7 +182,7 @@
   - 'cukier'
   correctAnswerId: 1
 
-- question: 'Który z podanych to stan ciekły'
+- question: 'Który z podanych to stan ciekły?'
   answers:
   - 'woda'
   - 'śnieg'
@@ -214,7 +214,7 @@
   - 'N'
   correctAnswerId: 3
 
-- question: 'Jak nazywana jes bezpośrednia przemiana lodu w parę wodną?'
+- question: 'Jak nazywana jest bezpośrednia przemiana lodu w parę wodną?'
   answers:
   - 'parowanie'
   - 'topnienie'
@@ -246,7 +246,7 @@
   - 'masa/droga'
   correctAnswerId: 1
 
-- question: '1 godzina to ile to sekund?'
+- question: '1 godzina, ile to sekund?'
   answers:
   - ' 7200 s'
   - '100 s'
@@ -272,7 +272,7 @@
 
 - question: '35cm to inaczej'
   answers:
-  - '0,35 km'
+  - '0.35 km'
   - '3.5 dm'
   - '35 m'
   - '35 mm'
@@ -302,7 +302,7 @@
   - 'Merkury'
   correctAnswerId: 0
 
-- question: 'Największa planeta naszego ukladu słonecznego to'
+- question: 'Największa planeta naszego układu słonecznego to'
   answers:
   - 'Merkury'
   - 'Ziemia'
@@ -310,7 +310,7 @@
   - 'Jowisz'
   correctAnswerId: 3
 
-- question: 'Ruch jednostajny to taki ruch w którym'
+- question: 'Ruch jednostajny to taki ruch, w którym'
   answers:
   - 'prędkość jest stała'
   - 'szybkość jest wielkością stałą'
@@ -459,7 +459,7 @@
   - 'przyciągają się'
   - 'odpychają się'
   - 'nie oddziałują na siebie'
-  - 'odpychają się tylko wtedy , gdy sie stykają'
+  - 'odpychają się tylko wtedy, gdy się stykają'
   correctAnswerId: 1
 
 - question: 'Jednostką ładunku jest...'
@@ -678,7 +678,7 @@
     - 'centymetr'
   correctAnswerId: 0
 
-- question: 'Wskaż falę, ktora nie jest falą elektromagnetyczną'
+- question: 'Wskaż falę, która nie jest falą elektromagnetyczną'
   answers:
     - 'promieniowanie nadfioletowe'
     - 'światło widzialne'
@@ -714,11 +714,11 @@
   answers:
     - 'odpychać'
     - 'brak poprawnej odpowiedzi'
-    - 'przyciągac'
-    - 'nie będą oddziaływac'
+    - 'przyciągać'
+    - 'nie będą oddziaływać'
   correctAnswerId: 0
 
-- question: 'Dwa naelektryzowane ciała mogą :'
+- question: 'Dwa naelektryzowane ciała mogą:'
   answers:
     - 'przyciągać się'
     - 'odpychać się'
@@ -746,11 +746,11 @@
   answers:
     - 'szkło'
     - 'złoto'
-    - 'żelao'
+    - 'żelazo'
     - 'miedź'
   correctAnswerId: 0
 
-- question: 'Gromadzenie przez ciało ładunku elektrycznego jednego znaku to :'
+- question: 'Gromadzenie przez ciało ładunku elektrycznego jednego znaku to:'
   answers:
     - 'Zbieractwo'
     - 'Elektryzowanie się'
@@ -787,7 +787,7 @@
     - 'drzwi lodówki przyciąga magnes'
     - 'ziemia przyciąga spadający kamień'
     - 'rzucona piłka odbija się od podłogi'
-    - 'Czapka zdejmowana szybkim ruchem przyciąga włosy'
+    - 'czapka zdejmowana szybkim ruchem przyciąga włosy'
   correctAnswerId: 3
 
 - question: 'Przykładem elektryzowania przez tarcie jest:'
@@ -803,7 +803,7 @@
     - 'Ciężar jest siłą'
     - 'Jednostką ciężaru jest kilogram'
     - 'Jądro atomu tworzą protony i neutrony'
-    - 'masa ciała na Ziemi i na Księżycu jest taka sama'
+    - 'Masa ciała na Ziemi i na Księżycu jest taka sama'
   correctAnswerId: 1
 
 - question: 'ciała stałe, ciecze i gazy ze wzrostem temperatury'
@@ -814,7 +814,7 @@
     - 'czasami zmniejszają, a czasami zwiększają objętość'
   correctAnswerId: 1
 
-- question: 'Gdy temperatura ciała wzrasta , to jego gęstość'
+- question: 'Gdy temperatura ciała wzrasta, to jego gęstość'
   answers:
     - 'maleje'
     - 'wzrasta'
@@ -846,7 +846,7 @@
     - 'oscyloskop'
   correctAnswerId: 0
 
-- question: 'Do pomiaru natężenia prądu elektrycznego stosuje się :'
+- question: 'Do pomiaru natężenia prądu elektrycznego stosuje się:'
   answers:
     - 'woltomierz'
     - 'amperomierz'
@@ -963,10 +963,10 @@
     - 'ciekły'
     - 'stały'
     - 'gazowy'
-    - 'połstały'
+    - 'półstały'
   correctAnswerId: 3
 
-- question: 'mianem jakiego stanu określamy kamien?'
+- question: 'Mianem jakiego stanu określamy kamien?'
   answers:
     - 'ciekły'
     - 'stały'
@@ -1003,5 +1003,5 @@
     - 'poziomy'
     - 'pionowy'
     - 'w dół'
-    - 'w góre'
+    - 'w górę'
   correctAnswerId: 1
